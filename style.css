@@ -8,9 +8,9 @@ body {
 
 /* Layout */
 .container {
-  max-width: 950px;
-  margin: 40px auto;
-  padding: 24px;
+  max-width: 1200px;  /* increase this */
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* Header feel */
