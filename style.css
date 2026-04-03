@@ -1,4 +1,5 @@
-margin: 0;
+body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: #f5f1e6; /* cream */
   color: #1f2a24;
@@ -12,11 +13,27 @@ margin: 0;
   text-align: left;
 }
 
+/* HERO RESET (THIS FIXES YOUR CENTERING ISSUE) */
+.hero {
+  text-align: left;
+  display: block;
+}
+
+/* Hero content also forced left */
+.hero-content {
+  text-align: left;
+}
+
 /* Header feel */
 h1 {
-  color: #1f5e3b; /* deep green */
+  color: #1f5e3b;
   font-size: 2.4rem;
   margin-bottom: 10px;
+}
+
+/* HERO TITLE: force single line */
+.hero h1 {
+  white-space: nowrap;
 }
 
 h2 {
@@ -26,11 +43,6 @@ h2 {
 
 p {
   font-size: 1.05rem;
-}
-
-/* HERO TITLE FIX (THIS IS THE KEY) */
-.hero h1 {
-  white-space: nowrap;
 }
 
 /* Cards */
@@ -91,7 +103,7 @@ img {
   object-fit: cover;
 }
 
-/* OPTIONAL: allow wrapping on mobile */
+/* Mobile safety: allow wrapping if needed */
 @media (max-width: 768px) {
   .hero h1 {
     white-space: normal;
