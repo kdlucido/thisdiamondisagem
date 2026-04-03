@@ -1,5 +1,4 @@
-body {
-  margin: 0;
+margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: #f5f1e6; /* cream */
   color: #1f2a24;
@@ -27,6 +26,11 @@ h2 {
 
 p {
   font-size: 1.05rem;
+}
+
+/* HERO TITLE FIX (THIS IS THE KEY) */
+.hero h1 {
+  white-space: nowrap;
 }
 
 /* Cards */
@@ -59,36 +63,37 @@ button:hover {
   background: #24573c;
 }
 
-/* Accent stripe (for civic/identity emphasis) */
+/* Accent stripe */
 .accent-bar {
   height: 6px;
   background: linear-gradient(
     90deg,
     #2f6f4e,
     #f5f1e6,
-    #b22234  /* subtle red */
+    #b22234
   );
   border-radius: 6px;
   margin-bottom: 20px;
 }
+
+/* Images */
 img {
   max-width: 100%;
   height: auto;
   display: block;
   border-radius: 10px;
 }
+
+/* Hero image */
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: left;
+
+/* OPTIONAL: allow wrapping on mobile */
+@media (max-width: 768px) {
+  .hero h1 {
+    white-space: normal;
+  }
 }
