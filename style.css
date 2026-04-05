@@ -127,3 +127,8 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+* {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
