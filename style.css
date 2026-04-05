@@ -1,134 +1,137 @@
 body {
-  margin: 0;
+margin: 0;
 font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: #f5f1e6; /* cream */
-  color: #1f2a24;
-  line-height: 1.6;
+background: #f5f1e6;
+color: #1f2a24;
+line-height: 1.6;
 }
 
 /* Layout */
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: left;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+text-align: left;
 }
 
-/* HERO RESET (THIS FIXES YOUR CENTERING ISSUE) */
+/* Accent bar */
+.accent-bar {
+height: 6px;
+background: linear-gradient(
+90deg,
+#2f6f4e,
+#f5f1e6,
+#b22234
+);
+border-radius: 6px;
+margin: 20px 0;
+}
+
+/* HERO */
 .hero {
-  text-align: left;
-  display: block;
+margin-bottom: 18px;
 }
 
-/* Hero content also forced left */
+.hero img {
+width: 100%;
+height: 300px;
+object-fit: cover;
+border-radius: 16px;
+margin-bottom: 16px;
+}
+
 .hero-content {
-  text-align: left;
+background: #ffffff;
+border-radius: 16px;
+padding: 22px;
+box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+border-left: 6px solid #2f6f4e;
+text-align: left;
 }
 
-/* Header feel */
+/* HEADINGS */
 h1 {
-  color: #1f5e3b;
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-}
-
-/* HERO TITLE: force single line */
-.hero h1 {
-  white-space: nowrap;
+color: #1f5e3b;
+font-size: 2.4rem;
+margin-bottom: 10px;
+white-space: normal; /* FIX: prevents ellipsis truncation */
 }
 
 h2 {
-  color: #2f6f4e;
-  margin-top: 28px;
+color: #2f6f4e;
+margin-top: 28px;
 }
 
+/* TEXT */
 p {
-  font-size: 1.05rem;
+font-size: 1.05rem;
 }
 
-/* Cards */
+/* CARDS */
 .card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 22px;
-  margin-bottom: 18px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-  border-left: 6px solid #2f6f4e;
+background: #ffffff;
+border-radius: 16px;
+padding: 22px;
+margin-bottom: 18px;
+box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+border-left: 6px solid #2f6f4e;
 }
 
-/* Links */
+/* LINKS */
 a {
-  color: #1f5e3b;
-  font-weight: 500;
+color: #1f5e3b;
+font-weight: 500;
+text-decoration: none;
 }
 
-/* Buttons */
-button {
-  background: #2f6f4e;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-  cursor: pointer;
+/* BUTTONS */
+button,
+.btn {
+display: inline-block;
+background: #2f6f4e;
+color: #fff;
+border: none;
+padding: 10px 16px;
+border-radius: 10px;
+cursor: pointer;
+text-decoration: none;
 }
 
-button:hover {
-  background: #24573c;
+button:hover,
+.btn:hover {
+background: #24573c;
 }
 
-/* Accent stripe */
-.accent-bar {
-  height: 6px;
-  background: linear-gradient(
-    90deg,
-    #2f6f4e,
-    #f5f1e6,
-    #b22234
-  );
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
-
-/* Images */
+/* IMAGES */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
+max-width: 100%;
+height: auto;
+display: block;
+border-radius: 10px;
 }
 
-/* Hero image */
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Mobile safety: allow wrapping if needed */
-@media (max-width: 768px) {
-  .hero h1 {
-    white-space: normal;
-  }
-}
+/* PHOTO GRID */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 across */
-  gap: 12px;
-  margin-top: 40px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 12px;
+margin-top: 40px;
 }
 
 .photo-grid img {
-  width: 100%;
-  height: 180px;   /* adjust as needed */
-  object-fit: cover;
-  border-radius: 10px; /* optional */
+width: 100%;
+height: 180px;
+object-fit: cover;
+border-radius: 10px;
 }
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.photo-grid {
+grid-template-columns: repeat(2, 1fr);
 }
-* {
-  white-space: normal !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
+
+.hero img {
+height: 220px;
+}
 }
