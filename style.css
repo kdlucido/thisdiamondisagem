@@ -1,137 +1,344 @@
 body {
-margin: 0;
-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-background: #f5f1e6;
-color: #1f2a24;
-line-height: 1.6;
+  margin: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f1e6;
+  color: #1f2a24;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Layout */
 .container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-text-align: left;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
 }
 
 /* Accent bar */
 .accent-bar {
-height: 6px;
-background: linear-gradient(
-90deg,
-#2f6f4e,
-#f5f1e6,
-#b22234
-);
-border-radius: 6px;
-margin: 20px 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #2f6f4e,
+    #f5f1e6,
+    #b22234
+  );
+  border-radius: 6px;
+  margin: 20px 0;
 }
 
 /* HERO */
 .hero {
-margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .hero img {
-width: 100%;
-height: 300px;
-object-fit: cover;
-border-radius: 16px;
-margin-bottom: 16px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 16px;
 }
 
 .hero-content {
-background: #ffffff;
-border-radius: 16px;
-padding: 22px;
-box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-border-left: 6px solid #2f6f4e;
-text-align: left;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border-left: 6px solid #2f6f4e;
+  text-align: left;
 }
 
 /* HEADINGS */
 h1 {
-color: #1f5e3b;
-font-size: 2.4rem;
-margin-bottom: 10px;
-white-space: normal; /* FIX: prevents ellipsis truncation */
+  color: #1f5e3b;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  white-space: normal;
 }
 
 h2 {
-color: #2f6f4e;
-margin-top: 28px;
+  color: #2f6f4e;
+  margin-top: 28px;
 }
 
 /* TEXT */
 p {
-font-size: 1.05rem;
+  font-size: 1.05rem;
 }
 
 /* CARDS */
 .card {
-background: #ffffff;
-border-radius: 16px;
-padding: 22px;
-margin-bottom: 18px;
-box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-border-left: 6px solid #2f6f4e;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+  border-left: 6px solid #2f6f4e;
 }
 
 /* LINKS */
 a {
-color: #1f5e3b;
-font-weight: 500;
-text-decoration: none;
+  color: #1f5e3b;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 /* BUTTONS */
 button,
 .btn {
-display: inline-block;
-background: #2f6f4e;
-color: #fff;
-border: none;
-padding: 10px 16px;
-border-radius: 10px;
-cursor: pointer;
-text-decoration: none;
+  display: inline-block;
+  background: #2f6f4e;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease;
 }
 
 button:hover,
 .btn:hover {
-background: #24573c;
+  background: #24573c;
 }
 
 /* IMAGES */
 img {
-max-width: 100%;
-height: auto;
-display: block;
-border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* =========================================================
+   QUOTE CAROUSEL
+========================================================= */
+
+.quote-carousel-section {
+  position: relative;
+  margin: 90px 0 80px;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* subtle fade edges */
+.quote-carousel-section::before,
+.quote-carousel-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.quote-carousel-section::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #f5f1e6 0%,
+    rgba(245,241,230,0) 100%
+  );
+}
+
+.quote-carousel-section::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #f5f1e6 0%,
+    rgba(245,241,230,0) 100%
+  );
+}
+
+/* TRACK */
+.quote-carousel-track {
+  display: flex;
+  gap: 34px;
+  width: max-content;
+  animation: quoteScroll 78s linear infinite;
+  align-items: center;
+}
+
+/* CARD */
+.quote-card {
+  width: 760px;
+  min-height: 355px;
+
+  border-radius: 30px;
+  padding: 56px 62px;
+
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.08),
+    0 10px 22px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+
+  transform: scale(0.96);
+}
+
+/* Hover = slight museum-card lift */
+.quote-card:hover {
+  transform: scale(0.975) translateY(-4px);
+}
+
+/* GREEN CARD */
+.quote-card.green {
+  background: #1f5c4a;
+  color: #ffffff;
+}
+
+/* WHITE CARD */
+.quote-card.white {
+  background: #ffffff;
+  color: #1f5c4a;
+}
+
+/* LARGE GRAPHIC QUOTE MARK */
+.quote-mark {
+  position: absolute;
+  top: -6px;
+  left: 18px;
+
+  font-family: Georgia, serif;
+  font-size: 190px;
+  line-height: 1;
+
+  opacity: 0.11;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* QUOTE TEXT */
+.quote-text {
+  position: relative;
+  z-index: 2;
+
+  font-size: 2.05rem;
+  line-height: 1.45;
+  font-weight: 500;
+
+  letter-spacing: -0.03em;
+
+  max-width: 92%;
+}
+
+/* ATTRIBUTION */
+.quote-attribution {
+  margin-top: 42px;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quote-role {
+  margin-top: 6px;
+  font-size: 0.96rem;
+  line-height: 1.45;
+  opacity: 0.82;
+  max-width: 90%;
+}
+
+/* AUTO SCROLL */
+@keyframes quoteScroll {
+
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* PHOTO GRID */
 .photo-grid {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 12px;
-margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 40px;
 }
 
 .photo-grid img {
-width: 100%;
-height: 180px;
-object-fit: cover;
-border-radius: 10px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* RESPONSIVE */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media (max-width: 768px) {
-.photo-grid {
-grid-template-columns: repeat(2, 1fr);
-}
 
-.hero img {
-height: 220px;
-}
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero img {
+    height: 220px;
+  }
+
+  .quote-carousel-section {
+    margin: 70px 0 60px;
+  }
+
+  .quote-carousel-section::before,
+  .quote-carousel-section::after {
+    width: 45px;
+  }
+
+  .quote-carousel-track {
+    gap: 20px;
+  }
+
+  .quote-card {
+    width: 84vw;
+    min-height: 310px;
+    padding: 40px 34px;
+    border-radius: 24px;
+  }
+
+  .quote-mark {
+    font-size: 120px;
+    top: 6px;
+    left: 12px;
+  }
+
+  .quote-text {
+    font-size: 1.45rem;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .quote-attribution {
+    margin-top: 30px;
+  }
+
+  .quote-name {
+    font-size: 0.9rem;
+  }
+
+  .quote-role {
+    font-size: 0.88rem;
+  }
 }
