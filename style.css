@@ -161,7 +161,7 @@ img {
 
   width: max-content;
 
-  animation: quoteScroll 78s linear infinite;
+  animation: quoteScroll 120s linear infinite;
 }
 
 /* Pause animation on hover */
