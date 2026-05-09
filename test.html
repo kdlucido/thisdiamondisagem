@@ -1,138 +1,286 @@
-<!-- QUOTES CAROUSEL -->
-<section class="quote-carousel-section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>This Diamond Is a Gem</title>
 
-  <div class="quote-carousel-track">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- 1 -->
-    <div class="quote-card green">
-      <div class="quote-mark">“</div>
+  <link rel="stylesheet" href="style.css">
 
-      <div class="quote-text">
-        This park will be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
-      </div>
+  <style>
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
 
-      <div class="quote-attribution">
-        <div class="quote-name">Lisa Diaz Nash</div>
-        <div class="quote-role">
-          Former Mayor of San Mateo / Current Council Member
+    .photo-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="accent-bar"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="field.jpg" alt="Fitzgerald Field">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>A Conversation About the Future of Fitzgerald Field</h1>
+
+      <p>
+        Fitzgerald Field has long been part of Central Park in San Mateo. A community-led effort is getting underway to explore what this space could become—with input from residents, neighbors, and local stakeholders.
+      </p>
+
+      <p>
+        This is an early-stage, grassroots initiative focused on listening, learning, and understanding what the community values most—and what role this historic ballpark might play in the future.
+      </p>
+
+      <a href="mailto:thisdiamondisagem@gmail.com" class="btn">Get Involved</a>
+    </div>
+  </section>
+
+  <!-- REALITY -->
+  <section class="card section">
+    <h2>A Space with History—Showing Its Age</h2>
+
+    <p>Fitzgerald Field has been part of San Mateo for generations.</p>
+
+    <p>Today, the facility shows clear signs of age and offers limited functionality—and for many, it has quietly faded from everyday use.</p>
+
+    <p><strong>How can the ballpark best serve the community in the years ahead?</strong></p>
+
+    <img src="foulpole.jpeg" class="image" alt="Foul pole at Fitzgerald Field">
+  </section>
+
+  <!-- COMMUNITY EFFORT -->
+  <section class="card section">
+    <h2>A Community-Led Effort</h2>
+
+    <p>At this stage, the focus is simple—we aim to:</p>
+
+    <ul>
+      <li>Raise awareness</li>
+      <li>Gather input</li>
+      <li>Understand community interest</li>
+    </ul>
+
+    <p>The City of San Mateo is aware of this outreach effort. Insights and ideas generated will help inform future planning discussions, including the Downtown Specific Plan process anticipated to begin in early 2027.</p>
+  </section>
+
+  <!-- WHY NOW -->
+  <section class="card section">
+    <h2>Why This Matters</h2>
+
+    <p>San Mateo continues to grow, and the demand for quality community space continues to increase.</p>
+
+    <p>At the same time, Fitzgerald Field remains underutilized relative to its potential.</p>
+
+    <p><strong>Before anything is considered, we are looking for the community to weigh in:</strong></p>
+
+    <ul>
+      <li>Is there interest in rethinking this space?</li>
+      <li>What would make it more valuable to the city and community?</li>
+      <li>Who wants to help shape what’s possible?</li>
+    </ul>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="card section">
+    <h2>Be Part of the Conversation</h2>
+
+    <p>If you have thoughts, ideas, or questions—we’d like to hear from you.</p>
+
+    <p>If you’re interested in helping move this effort forward, we’d welcome that as well.</p>
+
+    <p>And if you or your organization would consider providing financial support, we’re beginning those conversations too.</p>
+
+    <p class="email">
+      <a href="mailto:thisdiamondisagem@gmail.com">thisdiamondisagem@gmail.com</a>
+    </p>
+
+    <p><em>All outreach at this stage is informal and exploratory.</em></p>
+  </section>
+
+  <!-- QUOTE CAROUSEL -->
+  <section class="quote-carousel-section">
+
+    <div class="quote-carousel-track">
+
+      <!-- 1 -->
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          This park will be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
+        </div>
+
+        <div class="quote-attribution">
+          <div class="quote-name">Lisa Diaz Nash</div>
+          <div class="quote-role">
+            Former Mayor of San Mateo / Current Council Member
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 2 -->
-    <div class="quote-card white">
-      <div class="quote-mark">“</div>
+      <!-- 2 -->
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        A vibrant ballpark isn’t just about baseball—it’s where neighbors meet at summer concerts, families share experiences, and San Mateo becomes an even more exciting place to call home.
-      </div>
+        <div class="quote-text">
+          A vibrant ballpark isn’t just about baseball—it’s where neighbors meet at summer concerts, families share experiences, and San Mateo becomes an even more exciting place to call home.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Chris Eckert</div>
-        <div class="quote-role">
-          SF Peninsula Real Estate Expert
+        <div class="quote-attribution">
+          <div class="quote-name">Chris Eckert</div>
+          <div class="quote-role">
+            SF Peninsula Real Estate Expert
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 3 -->
-    <div class="quote-card green">
-      <div class="quote-mark">“</div>
+      <!-- 3 -->
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        At the new ballpark, seniors can stroll the site, sit in the plaza with a coffee, enjoy the outdoors—or watch a game.
-      </div>
+        <div class="quote-text">
+          At the new ballpark, seniors can stroll the site, sit in the plaza with a coffee, enjoy the outdoors—or watch a game.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Tom Lease</div>
-        <div class="quote-role">
-          City of San Mateo Senior Advisory Commission
+        <div class="quote-attribution">
+          <div class="quote-name">Tom Lease</div>
+          <div class="quote-role">
+            City of San Mateo Senior Advisory Commission
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 4 -->
-    <div class="quote-card white">
-      <div class="quote-mark">“</div>
+      <!-- 4 -->
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        This new ballpark will be an iconic centerpiece for San Mateo—a community that thrives, lives well, and benefits from smart investments that strengthen our neighborhoods for the long term.
-      </div>
+        <div class="quote-text">
+          This new ballpark will be an iconic centerpiece for San Mateo—a community that thrives, lives well, and benefits from smart investments that strengthen our neighborhoods for the long term.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Alex Khojikian</div>
-        <div class="quote-role">
-          San Mateo City Manager
+        <div class="quote-attribution">
+          <div class="quote-name">Alex Khojikian</div>
+          <div class="quote-role">
+            San Mateo City Manager
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 5 -->
-    <div class="quote-card green">
-      <div class="quote-mark">“</div>
+      <!-- 5 -->
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        This new stadium is destined to become the crown jewel of an already star-studded line up of ballparks and community recreation centers throughout the city of San Mateo.
-      </div>
+        <div class="quote-text">
+          This new stadium is destined to become the crown jewel of an already star-studded line up of ballparks and community recreation centers throughout the city of San Mateo.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Joanne Magrini</div>
-        <div class="quote-role">
-          Director of Parks and Recreation, San Mateo
+        <div class="quote-attribution">
+          <div class="quote-name">Joanne Magrini</div>
+          <div class="quote-role">
+            Director of Parks and Recreation, San Mateo
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 6 -->
-    <div class="quote-card white">
-      <div class="quote-mark">“</div>
+      <!-- 6 -->
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        San Mateo deserves a ballpark that reflects the pride of this community—for sports, events, and future generations.
-      </div>
+        <div class="quote-text">
+          San Mateo deserves a ballpark that reflects the pride of this community—for sports, events, and future generations.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Kevin Lucido</div>
-        <div class="quote-role">
-          40+ year resident of San Mateo
+        <div class="quote-attribution">
+          <div class="quote-name">Kevin Lucido</div>
+          <div class="quote-role">
+            40+ year resident of San Mateo
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- DUPLICATE SET FOR SEAMLESS LOOP -->
+      <!-- DUPLICATES FOR SEAMLESS LOOP -->
 
-    <!-- 1 -->
-    <div class="quote-card green">
-      <div class="quote-mark">“</div>
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        This park will be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
-      </div>
+        <div class="quote-text">
+          This park will be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Lisa Diaz Nash</div>
-        <div class="quote-role">
-          Former Mayor of San Mateo / Current Council Member
+        <div class="quote-attribution">
+          <div class="quote-name">Lisa Diaz Nash</div>
+          <div class="quote-role">
+            Former Mayor of San Mateo / Current Council Member
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- 2 -->
-    <div class="quote-card white">
-      <div class="quote-mark">“</div>
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
 
-      <div class="quote-text">
-        A vibrant ballpark isn’t just about baseball—it’s where neighbors meet at summer concerts, families share experiences, and San Mateo becomes an even more exciting place to call home.
-      </div>
+        <div class="quote-text">
+          A vibrant ballpark isn’t just about baseball—it’s where neighbors meet at summer concerts, families share experiences, and San Mateo becomes an even more exciting place to call home.
+        </div>
 
-      <div class="quote-attribution">
-        <div class="quote-name">Chris Eckert</div>
-        <div class="quote-role">
-          SF Peninsula Real Estate Expert
+        <div class="quote-attribution">
+          <div class="quote-name">Chris Eckert</div>
+          <div class="quote-role">
+            SF Peninsula Real Estate Expert
+          </div>
         </div>
       </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- PHOTO GRID -->
+  <section class="photo-grid">
+    <img src="images/photo1.jpg" alt="photo1">
+    <img src="images/photo2.jpg" alt="photo2">
+    <img src="images/photo3.jpg" alt="photo3">
+    <img src="images/photo4.jpg" alt="photo4">
+    <img src="images/photo5.jpg" alt="photo5">
+    <img src="images/photo6.jpg" alt="photo6">
+    <img src="images/photo7.jpg" alt="photo7">
+    <img src="images/photo8.jpg" alt="photo8">
+  </section>
+
+  <!-- FOOTER -->
+  <section class="card section">
+    <p>Fitzgerald Field has a long history in San Mateo.</p>
+
+    <p>What comes next is an open question—and one that starts with the community.</p>
+
+    <h2>This Diamond Is a Gem</h2>
+  </section>
+
+</div>
+
+</body>
+</html>
