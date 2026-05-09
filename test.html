@@ -31,6 +31,113 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
+    /* =========================================
+       QUOTE CAROUSEL FIX
+       ========================================= */
+
+    .quote-carousel-section {
+      width: 100%;
+      overflow: hidden;
+      margin: 60px 0;
+      position: relative;
+    }
+
+    .quote-carousel-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: scrollQuotes 60s linear infinite;
+      padding: 10px 0;
+    }
+
+    .quote-carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    .quote-card {
+      width: 360px;
+      min-width: 360px;
+      max-width: 360px;
+      border-radius: 22px;
+      padding: 34px 28px 28px;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    .quote-card.green {
+      background: #1f4d3a;
+      color: white;
+    }
+
+    .quote-card.white {
+      background: white;
+      color: #1d1d1d;
+    }
+
+    .quote-mark {
+      font-size: 70px;
+      line-height: 1;
+      opacity: 0.18;
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-weight: 700;
+    }
+
+    .quote-text {
+      font-size: 1.08rem;
+      line-height: 1.75;
+      font-weight: 500;
+      margin-top: 36px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .quote-attribution {
+      margin-top: auto;
+    }
+
+    .quote-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .quote-role {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      opacity: 0.88;
+    }
+
+    @keyframes scrollQuotes {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .quote-card {
+        width: 300px;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 340px;
+      }
+
+      .quote-text {
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 
@@ -225,11 +332,12 @@
 
       <!-- DUPLICATES FOR SEAMLESS LOOP -->
 
+      <!-- 1 DUP -->
       <div class="quote-card green">
         <div class="quote-mark">“</div>
 
         <div class="quote-text">
-          This park needs to be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
+          This park should be a gathering place for generations, showcasing the best of San Mateo and creating memories that last a lifetime.
         </div>
 
         <div class="quote-attribution">
@@ -240,6 +348,7 @@
         </div>
       </div>
 
+      <!-- 2 DUP -->
       <div class="quote-card white">
         <div class="quote-mark">“</div>
 
@@ -251,6 +360,70 @@
           <div class="quote-name">Chris Eckert</div>
           <div class="quote-role">
             SF Peninsula Real Estate Expert
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 DUP -->
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          At a new ballpark, seniors would love to stroll the site, sit in the plaza with a coffee, enjoy the outdoors—or watch a game.
+        </div>
+
+        <div class="quote-attribution">
+          <div class="quote-name">Tom Lease</div>
+          <div class="quote-role">
+            City of San Mateo Senior Advisory Commission
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 DUP -->
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          This new ballpark could be an iconic centerpiece for San Mateo—a community that thrives, lives well, and benefits from smart investments that strengthen our neighborhoods for the long term.
+        </div>
+
+        <div class="quote-attribution">
+          <div class="quote-name">Alex Khojikian</div>
+          <div class="quote-role">
+            San Mateo City Manager
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 DUP -->
+      <div class="quote-card green">
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          The new stadium should be nothing less than the crown jewel of an already star-studded line up of ballparks and community recreation centers throughout the city of San Mateo.
+        </div>
+
+        <div class="quote-attribution">
+          <div class="quote-name">Joanne Magrini</div>
+          <div class="quote-role">
+            Director of Parks and Recreation, San Mateo
+          </div>
+        </div>
+      </div>
+
+      <!-- 6 DUP -->
+      <div class="quote-card white">
+        <div class="quote-mark">“</div>
+
+        <div class="quote-text">
+          San Mateo deserves a ballpark that reflects the pride of this community—for sports, events, and future generations.
+        </div>
+
+        <div class="quote-attribution">
+          <div class="quote-name">Kevin Lucido</div>
+          <div class="quote-role">
+            40+ year resident of San Mateo
           </div>
         </div>
       </div>
