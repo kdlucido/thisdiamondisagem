@@ -219,7 +219,7 @@
     }
 
     .supporter-popup {
-      display: none !important;
+      display: none;
       position: absolute;
       top: calc(100% + 7px);
       left: 50%;
@@ -248,16 +248,16 @@
       font-weight: 700;
     }
 
-    /* Desktop: show only while the pointer is over the card */
+    /* Desktop: hover shows the title; leaving hides it. */
     @media (hover: hover) and (pointer: fine) {
       .supporters-grid .supporter-card:hover > .supporter-popup {
-        display: block !important;
+        display: block;
       }
     }
 
-    /* Touchscreens: show only when the card is tapped open */
+    /* Touchscreens: an open card shows its title. */
     .supporters-grid .supporter-card[open] > .supporter-popup {
-      display: block !important;
+      display: block;
     }
 
     .supporters-cta {
@@ -697,71 +697,40 @@
 
   function closeCard(card) {
     card.removeAttribute("open");
-    var popup = card.querySelector(".supporter-popup");
-    if (popup) {
-      popup.style.removeProperty("display");
-    }
   }
 
-  function closeAllCards(exceptCard) {
-    cards.forEach(function (card) {
-      if (card !== exceptCard) {
-        closeCard(card);
-      }
-    });
+  function closeAllCards() {
+    cards.forEach(closeCard);
   }
 
   cards.forEach(function (card) {
-    var popup = card.querySelector(".supporter-popup");
     var summary = card.querySelector("summary");
 
-    /* Desktop: show on pointer entry and close on pointer exit. */
-    card.addEventListener("mouseenter", function () {
-      if (desktopPointer.matches) {
-        closeAllCards(card);
-        card.removeAttribute("open");
-        if (popup) {
-          popup.style.setProperty("display", "block", "important");
-        }
-      }
-    });
-
-    card.addEventListener("mouseleave", function () {
-      if (desktopPointer.matches) {
-        closeCard(card);
-      }
-    });
-
-    /* Prevent the browser's <details> click behavior from leaving
-       desktop popups open. On touchscreens, tap toggles the popup. */
     summary.addEventListener("click", function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-
       if (desktopPointer.matches) {
-        closeCard(card);
+        /* Let CSS handle desktop hover; don't toggle <details>. */
+        event.preventDefault();
+        event.stopPropagation();
         return;
       }
 
-      var wasOpen = card.hasAttribute("open");
-      closeAllCards(card);
+      /* Touchscreen: toggle the selected title and close the others. */
+      event.preventDefault();
+      event.stopPropagation();
 
-      if (wasOpen) {
-        closeCard(card);
-      } else {
+      var wasOpen = card.hasAttribute("open");
+      closeAllCards();
+
+      if (!wasOpen) {
         card.setAttribute("open", "");
-        if (popup) {
-          popup.style.setProperty("display", "block", "important");
-        }
       }
     });
   });
 
-  /* On touchscreens, tapping outside the supporter cards closes them. */
   document.addEventListener("click", function (event) {
     if (!desktopPointer.matches &&
         !event.target.closest(".supporters-grid .supporter-card")) {
-      closeAllCards(null);
+      closeAllCards();
     }
   });
 })();
