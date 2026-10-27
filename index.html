@@ -248,14 +248,14 @@
       font-weight: 700;
     }
 
-    /* Desktop: show popup when the cursor hovers over the card */
+    /* Desktop: show only while the pointer is over the card */
     @media (hover: hover) and (pointer: fine) {
       .supporters-grid .supporter-card:hover > .supporter-popup {
         display: block !important;
       }
     }
 
-    /* Touchscreens: show popup when a card is tapped */
+    /* Touchscreens: show only when the card is tapped open */
     .supporters-grid .supporter-card[open] > .supporter-popup {
       display: block !important;
     }
@@ -446,7 +446,7 @@
         <div class="quote-mark">“</div>
 
         <div class="quote-text">
-          Central Park is perhaps the most treasured and visited public park in San Mateo and holds special value to the community  due to its unique mix of amenities and historic features.
+          Central Park is perhaps the most treasured and visited public park in San Mateo and holds special value to the community due to its unique mix of amenities and historic features.
         </div>
 
         <div class="quote-attribution">
@@ -590,7 +590,7 @@
     </div>
   </section>
 
-  <!-- SUPPORTERS — NEW SECTION -->
+  <!-- SUPPORTERS -->
   <section class="supporters-section">
     <h2>You’re in Good Company</h2>
     <p class="supporters-subtitle">People who believe Fitzgerald Field is worth preserving and improving.</p>
@@ -689,6 +689,83 @@
   </section>
 
 </div>
+
+<script>
+(function () {
+  var cards = document.querySelectorAll(".supporters-grid .supporter-card");
+  var desktopPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+  function closeCard(card) {
+    card.removeAttribute("open");
+    var popup = card.querySelector(".supporter-popup");
+    if (popup) {
+      popup.style.removeProperty("display");
+    }
+  }
+
+  function closeAllCards(exceptCard) {
+    cards.forEach(function (card) {
+      if (card !== exceptCard) {
+        closeCard(card);
+      }
+    });
+  }
+
+  cards.forEach(function (card) {
+    var popup = card.querySelector(".supporter-popup");
+    var summary = card.querySelector("summary");
+
+    /* Desktop: show on pointer entry and close on pointer exit. */
+    card.addEventListener("mouseenter", function () {
+      if (desktopPointer.matches) {
+        closeAllCards(card);
+        card.removeAttribute("open");
+        if (popup) {
+          popup.style.setProperty("display", "block", "important");
+        }
+      }
+    });
+
+    card.addEventListener("mouseleave", function () {
+      if (desktopPointer.matches) {
+        closeCard(card);
+      }
+    });
+
+    /* Prevent the browser's <details> click behavior from leaving
+       desktop popups open. On touchscreens, tap toggles the popup. */
+    summary.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (desktopPointer.matches) {
+        closeCard(card);
+        return;
+      }
+
+      var wasOpen = card.hasAttribute("open");
+      closeAllCards(card);
+
+      if (wasOpen) {
+        closeCard(card);
+      } else {
+        card.setAttribute("open", "");
+        if (popup) {
+          popup.style.setProperty("display", "block", "important");
+        }
+      }
+    });
+  });
+
+  /* On touchscreens, tapping outside the supporter cards closes them. */
+  document.addEventListener("click", function (event) {
+    if (!desktopPointer.matches &&
+        !event.target.closest(".supporters-grid .supporter-card")) {
+      closeAllCards(null);
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
