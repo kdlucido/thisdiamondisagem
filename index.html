@@ -697,31 +697,49 @@
 
 <script>
 (function () {
-  var cards = document.querySelectorAll(".supporters-grid .supporter-card");
-  var desktopPointer = window.matchMedia("(hover: hover) and (pointer: fine)");
-
-  function closeCard(card) {
-    card.removeAttribute("open");
-  }
+  var cards = document.querySelectorAll(
+    ".supporters-grid .supporter-card"
+  );
+  var desktopPointer = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+  );
 
   function closeAllCards() {
-    cards.forEach(closeCard);
+    cards.forEach(function (card) {
+      card.removeAttribute("open");
+      var popup = card.querySelector(".supporter-popup");
+      if (popup) {
+        popup.style.removeProperty("display");
+      }
+    });
   }
 
   cards.forEach(function (card) {
     var summary = card.querySelector("summary");
+    var popup = card.querySelector(".supporter-popup");
 
+    /* Desktop: explicitly show the title on mouse entry. */
+    card.addEventListener("mouseenter", function () {
+      if (desktopPointer.matches && popup) {
+        popup.style.setProperty("display", "block", "important");
+      }
+    });
+
+    /* Desktop: hide the title when the mouse leaves. */
+    card.addEventListener("mouseleave", function () {
+      if (desktopPointer.matches && popup) {
+        popup.style.removeProperty("display");
+        card.removeAttribute("open");
+      }
+    });
+
+    /* Touchscreen: tap a name to show or hide its title. */
     summary.addEventListener("click", function (event) {
       if (desktopPointer.matches) {
-        /* Let CSS handle desktop hover; don't toggle <details>. */
-        event.preventDefault();
-        event.stopPropagation();
         return;
       }
 
-      /* Touchscreen: toggle the selected title and close the others. */
       event.preventDefault();
-      event.stopPropagation();
 
       var wasOpen = card.hasAttribute("open");
       closeAllCards();
@@ -732,9 +750,12 @@
     });
   });
 
+  /* Touchscreen: tap outside the cards to close the title. */
   document.addEventListener("click", function (event) {
-    if (!desktopPointer.matches &&
-        !event.target.closest(".supporters-grid .supporter-card")) {
+    if (
+      !desktopPointer.matches &&
+      !event.target.closest(".supporters-grid .supporter-card")
+    ) {
       closeAllCards();
     }
   });
