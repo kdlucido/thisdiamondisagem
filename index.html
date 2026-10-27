@@ -248,17 +248,22 @@
       font-weight: 700;
     }
 
-    /* Desktop: hover shows the title; leaving hides it. */
-    @media (hover: hover) and (pointer: fine) {
-      .supporters-grid .supporter-card:hover > .supporter-popup {
-        display: block;
-      }
-    }
+    /* DESKTOP: reliably display the title while hovering. */
+@media (hover: hover) and (pointer: fine) {
+  .supporters-grid .supporter-card:hover > .supporter-popup,
+  .supporters-grid .supporter-card:focus-within > .supporter-popup {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
 
-    /* Touchscreens: an open card shows its title. */
-    .supporters-grid .supporter-card[open] > .supporter-popup {
-      display: block;
-    }
+/* TOUCHSCREEN: display the title when the card is open. */
+.supporters-grid .supporter-card[open] > .supporter-popup {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
 
     .supporters-cta {
       display: inline-block;
